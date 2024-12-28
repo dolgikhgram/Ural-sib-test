@@ -18,4 +18,4 @@ const Post = ({title,id}:PropsPostType) =>{
     )
 }
 
-export default Post
+export default React.memo(Post)

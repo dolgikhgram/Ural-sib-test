@@ -29,14 +29,12 @@ const PostContent = () =>{
     .then(response => response.json())
     .then((r:PostType) => setPost(r))
     .catch(e => console.error(e))
+    fetch(`https://jsonplaceholder.typicode.com/comments/`)
+        .then(response => response.json())
+        .then((r:CommentsResponseType) => setComments(r))
+        .catch(e => console.error(e))
     },
     [])
-    useEffect(
-        ()=>{
-        fetch(`https://jsonplaceholder.typicode.com/comments/`)
-        .then(response => response.json())
-        .then((r:CommentsResponseType) => setComments(r))},
-        [])
         let newComments= comments.filter((el)=> el.postId===Number(params['*']))
     return(
         <div className='border-comment'>
